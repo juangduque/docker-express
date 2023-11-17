@@ -1,7 +1,15 @@
-FROM node:18-alpine
-WORKDIR /app
-COPY ./package.json .
-RUN npm config set "strict-ssl" false && npm install
+FROM node:14
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install --verbose
+
 COPY . .
-ENV PATH=$PATH:/app/node_modules/.bin
-CMD [ "nodemon", "src/app.js" ]
+
+EXPOSE 3000
+
+CMD ["npm", "run","dev"]

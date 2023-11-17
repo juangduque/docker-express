@@ -1,17 +1,19 @@
 {
-  "name": "express-test",
+  "name": "docker-express",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "repository": "https://github.com/juangduque/docker-express.git",
+  "author": "Juan Duque <juangduqued@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "sh ./scripts/docker/compose.sh"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "mongoose": "^8.0.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.0.1"
   }
 }
