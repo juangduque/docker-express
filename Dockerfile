@@ -6,10 +6,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install --verbose
+RUN npm config set "strict-ssl" false && npm install --verbose
+RUN npm install -g nodemon
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run","dev"]
+CMD ["nodemon", "src/index.js"]

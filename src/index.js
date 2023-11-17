@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-require('./database');
+// require('./database');
 
 app.use(require('./routes/index.routes'))
 

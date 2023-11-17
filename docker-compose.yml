@@ -8,13 +8,16 @@ services:
     ports:
       - "3000:3000"
     links:
-      - mongo
+      - mongodb
     volumes:
       - .:/usr/src/app
-  mongo:
+  mongodb:
+    image: mongo:latest
     container_name: mongodb
-    image: mongo
     ports:
       - "27017:27017"
-    logging:
-      driver: none
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
